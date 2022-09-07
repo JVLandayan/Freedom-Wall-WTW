@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthorizationService } from 'src/app/shared/services/authorization.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,19 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
   @Input() isLoggedIn: boolean;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthorizationService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (this.authService.userValue.id) {
+      this.isLoggedIn = true;
+    }
+  }
 
   login(): void {
-    var userObject = { userId: 1, anonName: 'helloworld-anon' };
-    localStorage.setItem('user', JSON.stringify(userObject));
+    this.authService.login();
     alert('User logged in');
     this.isLoggedIn = true;
     this.router.navigate(['']);

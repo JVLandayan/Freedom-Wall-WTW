@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreatePost, ReadPost } from 'src/app/shared/models/posts.model';
+import { AuthorizationService } from 'src/app/shared/services/authorization.service';
 import { PostsService } from 'src/app/shared/services/posts.service';
 
 @Component({
@@ -10,10 +11,13 @@ import { PostsService } from 'src/app/shared/services/posts.service';
   styleUrls: ['./create-a-post.component.css'],
 })
 export class CreateAPostComponent implements OnInit {
-  constructor(private postService: PostsService, private router: Router) {}
+  constructor(
+    private postService: PostsService,
+    private router: Router,
+    private authService: AuthorizationService
+  ) {}
 
   postForm: FormGroup;
-  user = JSON.parse(localStorage.getItem('user') ?? '');
 
   ngOnInit(): void {
     this.initForm();
@@ -34,8 +38,8 @@ export class CreateAPostComponent implements OnInit {
       title: this.postForm.get('title')?.value,
       content: this.postForm.get('content')?.value,
       dateCreated: presentDate,
-      anonName: this.user.anonName,
-      userId: this.user.userId,
+      anonName: this.authService.userValue.anonName,
+      userId: this.authService.userValue.id,
     };
     this.postService.createPost(payload).subscribe((data) => {
       alert('Post Created Successfully');

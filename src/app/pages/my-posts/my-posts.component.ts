@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ReadPost } from 'src/app/shared/models/posts.model';
+import { AuthorizationService } from 'src/app/shared/services/authorization.service';
 import { PostsService } from 'src/app/shared/services/posts.service';
 
 @Component({
@@ -12,12 +13,15 @@ export class MyPostsComponent implements OnInit {
   isEdit: boolean = false;
   componentName: string = 'my-posts';
 
-  constructor(private postService: PostsService) {}
+  constructor(
+    private postService: PostsService,
+    private authService: AuthorizationService
+  ) {}
 
   ngOnInit(): void {
     this.postService.getPosts().subscribe((data) => {
-      const user = JSON.parse(localStorage.getItem('user') ?? '');
-      this.postList = data.filter((post) => post.userId == user.userId);
+      const user = this.authService.userValue;
+      this.postList = data.filter((post) => post.userId == user.id);
     });
   }
 
@@ -28,8 +32,8 @@ export class MyPostsComponent implements OnInit {
   deletePost(id: number) {
     this.postService.deletePostById(id).subscribe((data) => {
       alert('Post Deleted');
+      this.ngOnInit();
     });
-    this.ngOnInit();
   }
   updateView() {
     this.ngOnInit();

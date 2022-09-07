@@ -13,14 +13,5 @@
       "anonName": "helloworld-ANON"
     }
   ],
-  "posts": [
-    {
-      "id": 1416245313629,
-      "title": "hello123",
-      "content": "helo",
-      "anonName": "helloworld-anon",
-      "userId": 1,
-      "dateCreated": "2022-09-07T05:03:55.136Z"
-    }
-  ]
+  "posts": []
 }

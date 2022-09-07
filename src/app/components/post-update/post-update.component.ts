@@ -25,8 +25,6 @@ export class PostUpdateComponent implements OnInit {
   }
 
   submit() {
-    console.log('hello from submit update component');
-
     const formPayload: UpdatePost = {
       id: this.postData.id,
       title: this.updateForm.get('title')?.value,
