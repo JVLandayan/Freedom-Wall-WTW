@@ -1,0 +1,34 @@
+{
+  "authorization": [
+    {
+      "id": 1,
+      "username": "JVVVV",
+      "password": "helloworld123"
+    }
+  ],
+  "users": [
+    {
+      "authId": 1,
+      "id": 1,
+      "anonName": "helloworld-ANON"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1295981323700,
+      "title": "This is my first post",
+      "content": "Hi guys",
+      "dateCreated": "2022-09-07T03:34:10.130Z",
+      "anonName": "helloworld-anon",
+      "userId": 1
+    },
+    {
+      "id": 1295981323700,
+      "title": "This is my first post",
+      "content": "Hi guys",
+      "dateCreated": "2022-09-07T03:34:10.130Z",
+      "anonName": "hello-anon",
+      "userId": 2
+    }
+  ]
+}
