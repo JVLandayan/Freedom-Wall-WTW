@@ -25,7 +25,7 @@ export class PostsService {
     return this.http.post<any>(this.entityApiUrl, payload);
   }
 
-  updatePost(payload: any): Observable<any> {
+  updatePost(id: number, payload: any): Observable<any> {
     return this.http.put<any>(this.entityApiUrl + payload.id, payload);
   }
 

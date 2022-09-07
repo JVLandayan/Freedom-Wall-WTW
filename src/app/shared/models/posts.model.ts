@@ -8,3 +8,5 @@ export interface ReadPost {
 }
 
 export interface CreatePost extends ReadPost {}
+
+export interface UpdatePost extends ReadPost {}

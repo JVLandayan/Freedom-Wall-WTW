@@ -15,6 +15,7 @@ import { PostsComponent } from './components/posts/posts.component';
 import { CreateAPostComponent } from './pages/create-a-post/create-a-post.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyPostsComponent } from './pages/my-posts/my-posts.component';
+import { PostUpdateComponent } from './components/post-update/post-update.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MyPostsComponent } from './pages/my-posts/my-posts.component';
     PostsComponent,
     CreateAPostComponent,
     MyPostsComponent,
+    PostUpdateComponent,
   ],
   imports: [
     BrowserModule,

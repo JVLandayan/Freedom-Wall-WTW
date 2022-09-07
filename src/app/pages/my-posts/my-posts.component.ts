@@ -9,6 +9,9 @@ import { PostsService } from 'src/app/shared/services/posts.service';
 })
 export class MyPostsComponent implements OnInit {
   postList: ReadPost[] = [];
+  isEdit: boolean = false;
+  componentName: string = 'my-posts';
+
   constructor(private postService: PostsService) {}
 
   ngOnInit(): void {
@@ -16,5 +19,19 @@ export class MyPostsComponent implements OnInit {
       const user = JSON.parse(localStorage.getItem('user') ?? '');
       this.postList = data.filter((post) => post.userId == user.userId);
     });
+  }
+
+  editPost() {
+    this.isEdit = !this.isEdit;
+  }
+
+  deletePost(id: number) {
+    this.postService.deletePostById(id).subscribe((data) => {
+      alert('Post Deleted');
+    });
+    this.ngOnInit();
+  }
+  updateView() {
+    this.ngOnInit();
   }
 }

@@ -15,20 +15,12 @@
   ],
   "posts": [
     {
-      "id": 1295981323700,
-      "title": "This is my first post",
-      "content": "Hi guys",
-      "dateCreated": "2022-09-07T03:34:10.130Z",
+      "id": 1416245313629,
+      "title": "hello123",
+      "content": "helo",
       "anonName": "helloworld-anon",
-      "userId": 1
-    },
-    {
-      "id": 1295981323700,
-      "title": "This is my first post",
-      "content": "Hi guys",
-      "dateCreated": "2022-09-07T03:34:10.130Z",
-      "anonName": "hello-anon",
-      "userId": 2
+      "userId": 1,
+      "dateCreated": "2022-09-07T05:03:55.136Z"
     }
   ]
 }
