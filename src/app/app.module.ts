@@ -16,6 +16,8 @@ import { CreateAPostComponent } from './pages/create-a-post/create-a-post.compon
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyPostsComponent } from './pages/my-posts/my-posts.component';
 import { PostUpdateComponent } from './components/post-update/post-update.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { AddCommentComponent } from './components/add-comment/add-comment.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { PostUpdateComponent } from './components/post-update/post-update.compon
     CreateAPostComponent,
     MyPostsComponent,
     PostUpdateComponent,
+    CommentsComponent,
+    AddCommentComponent,
   ],
   imports: [
     BrowserModule,

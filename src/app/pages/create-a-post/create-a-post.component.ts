@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CreatePost, ReadPost } from 'src/app/shared/models/posts.model';
 import { AuthorizationService } from 'src/app/shared/services/authorization.service';
+import { HelperService } from 'src/app/shared/services/helper.service';
 import { PostsService } from 'src/app/shared/services/posts.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class CreateAPostComponent implements OnInit {
   constructor(
     private postService: PostsService,
     private router: Router,
-    private authService: AuthorizationService
+    private authService: AuthorizationService,
+    private helperService: HelperService
   ) {}
 
   postForm: FormGroup;
@@ -34,7 +36,7 @@ export class CreateAPostComponent implements OnInit {
     var presentDate = new Date().toJSON();
 
     const payload: CreatePost = {
-      id: this.uniqueIdGenerator(),
+      id: this.helperService.uniqueIdGenerator(),
       title: this.postForm.get('title')?.value,
       content: this.postForm.get('content')?.value,
       dateCreated: presentDate,
@@ -46,9 +48,5 @@ export class CreateAPostComponent implements OnInit {
       this.postForm.reset();
       this.router.navigate(['']);
     });
-  }
-
-  uniqueIdGenerator(): number {
-    return Math.floor(Math.random() * Date.now());
   }
 }

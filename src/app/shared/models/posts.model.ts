@@ -1,3 +1,5 @@
+import { comment } from './comments.model';
+
 export interface ReadPost {
   id: number;
   title: string;
@@ -5,6 +7,7 @@ export interface ReadPost {
   userId?: number;
   anonName: string;
   dateCreated: string;
+  comments?: comment[];
 }
 
 export interface CreatePost extends ReadPost {}

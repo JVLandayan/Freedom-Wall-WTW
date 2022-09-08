@@ -10,11 +10,15 @@ import { EntityList } from '../enums/entities';
 export class PostsService {
   constructor(private http: HttpClient) {}
 
-  entityApiUrl = environment.apiUrl + EntityList.POSTS + '/';
+  entityApiUrl = environment.apiUrl + EntityList.POSTS;
 
   getPosts(): Observable<any[]> {
     console.log(this.entityApiUrl);
     return this.http.get<any[]>(this.entityApiUrl);
+  }
+
+  getPostsWithComments(): Observable<any[]> {
+    return this.http.get<any[]>(this.entityApiUrl + '?_embed=comments');
   }
 
   getPostById(id: number): Observable<any> {

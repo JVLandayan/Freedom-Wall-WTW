@@ -20,10 +20,10 @@ export class AuthorizationService {
     this.user = this.userSubject.asObservable();
   }
 
-  entityApiUrl = environment.apiUrl + `/${EntityList.AUTHORIZATION}/`;
+  entityApiUrl = environment.apiUrl + `${EntityList.AUTHORIZATION}/`;
 
   login(): void {
-    var userObject = { id: 1, anonName: 'helloworld-anon' };
+    var userObject = environment.userData;
     localStorage.setItem('user', JSON.stringify(userObject));
     this.userSubject.next(userObject);
   }

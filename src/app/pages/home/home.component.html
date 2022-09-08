@@ -4,12 +4,12 @@
 <div class="container my-24 px-1 mx-auto">
 
   <!-- Section: Design Block -->
-  <section class="mb-32 text-gray-800 text-center">
+  <section class="mb-32 text-gray-800">
 
     <h2 class="text-3xl font-bold mb-12 pb-4 text-center">Latest Posts</h2>
 
-    <div class="grid lg:grid-cols-5 gap-6 xl:gap-x-12">
-      <app-posts *ngFor="let post of postList.reverse()" [postData]="post"></app-posts>
+    <div class="grid lg:grid-cols-2 gap-6 xl:gap-x-12">
+      <app-posts *ngFor="let post of postList.reverse()" (addCommentEvent)="handleAddComment()" [postData]="post" ></app-posts>
     </div>
 
 

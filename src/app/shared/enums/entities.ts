@@ -3,4 +3,5 @@ export enum EntityList {
   AUTHORIZATION = 'authorization',
   USERS = 'users',
   POSTS = 'posts',
+  COMMENTS = 'comments',
 }
