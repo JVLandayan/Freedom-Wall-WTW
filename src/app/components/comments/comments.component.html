@@ -10,10 +10,10 @@
     <div class="p-6">
 
       <p class="mb-0 pb-0">
-        {{commentData.comment}}
+        {{commentData.body}}
       </p>
       <p class="text-gray-500 mb-0">
-        <small><b>{{'name'}}</b> - {{commentData.dateCreated | date: 'dd/MM/yyyy hh:mm a'}} </small>
+        <small><b>{{commentData.user?.anonymousName}}</b> - {{commentData.dateCreated | date: 'dd/MM/yyyy hh:mm a'}} </small>
       </p>
     </div>
       </div>

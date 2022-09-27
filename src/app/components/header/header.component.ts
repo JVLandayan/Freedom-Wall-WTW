@@ -1,6 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthorizationService } from 'src/app/shared/services/authorization.service';
+import { AuthenticationService } from 'src/app/shared/services/Authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -9,27 +9,24 @@ import { AuthorizationService } from 'src/app/shared/services/authorization.serv
 })
 export class HeaderComponent implements OnInit {
   @Input() isLoggedIn: boolean;
+  @Output() onStateChangeEvent = new EventEmitter<void>();
 
   constructor(
     private router: Router,
-    private authService: AuthorizationService
+    private authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
-    if (this.authService.userValue.id) {
+    if (this.authService.userValue.userId) {
       this.isLoggedIn = true;
     }
   }
 
-  login(): void {
-    this.authService.login();
-    alert('User logged in');
-    this.isLoggedIn = true;
-    this.router.navigate(['']);
-  }
+  login(): void {}
 
   logout(): void {
     localStorage.removeItem('user');
+    this.onStateChangeEvent.emit();
     alert('User Logged Out');
     this.isLoggedIn = false;
     this.router.navigate(['']);

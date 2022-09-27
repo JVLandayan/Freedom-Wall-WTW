@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { CreatePost, ReadPost } from 'src/app/shared/models/posts.model';
-import { AuthorizationService } from 'src/app/shared/services/authorization.service';
+import { AddOrUpdatePost, ReadPost } from 'src/app/shared/models/post.model';
+import { AuthenticationService } from 'src/app/shared/services/Authentication.service';
 import { HelperService } from 'src/app/shared/services/helper.service';
 import { PostsService } from 'src/app/shared/services/posts.service';
 
@@ -15,8 +15,7 @@ export class CreateAPostComponent implements OnInit {
   constructor(
     private postService: PostsService,
     private router: Router,
-    private authService: AuthorizationService,
-    private helperService: HelperService
+    private authService: AuthenticationService
   ) {}
 
   postForm: FormGroup;
@@ -33,15 +32,10 @@ export class CreateAPostComponent implements OnInit {
   }
 
   submit(): void {
-    var presentDate = new Date().toJSON();
-
-    const payload: CreatePost = {
-      id: this.helperService.uniqueIdGenerator(),
+    const payload: AddOrUpdatePost = {
       title: this.postForm.get('title')?.value,
       content: this.postForm.get('content')?.value,
-      dateCreated: presentDate,
-      anonName: this.authService.userValue.anonName,
-      userId: this.authService.userValue.id,
+      userId: this.authService.userValue.userId,
     };
     this.postService.createPost(payload).subscribe((data) => {
       alert('Post Created Successfully');

@@ -4,6 +4,11 @@
       "id": 1,
       "username": "JVVVV",
       "password": "helloworld123"
+    },
+    {
+      "id": 2,
+      "username": "Another user",
+      "password": "helloworld12345"
     }
   ],
   "users": [
@@ -11,74 +16,86 @@
       "authId": 1,
       "id": 1,
       "anonName": "helloworld-ANON"
+    },
+    {
+      "authId": 2,
+      "id": 2,
+      "anonName": "helloworld-ANON2"
     }
   ],
   "posts": [
     {
-      "id": 1128150592242,
-      "title": "fsdaf",
-      "content": "afdasf",
-      "dateCreated": "2022-09-07T07:32:11.452Z",
-      "anonName": "helloworld-anon",
-      "userId": 1
-    },
-    {
-      "id": 1059805452554,
-      "title": "Own world",
-      "content": "This is one of my content",
+      "id": 10598054525543,
+      "title": "My first post",
+      "content": "Hello There",
       "anonName": "helloworld-anon",
       "userId": 1,
       "dateCreated": "2022-09-07T08:02:55.838Z"
+    },
+    {
+      "id": 508138731127,
+      "title": "dasd",
+      "content": "dasdas",
+      "dateCreated": "2022-09-08T08:19:40.859Z",
+      "anonName": "helloworld-ANON2",
+      "userId": 2
     }
   ],
   "comments": [
     {
+      "id": 557714261924,
+      "comment": "Hello",
+      "dateCreated": "2022-09-08T05:37:31.855Z",
+      "postId": 10598054525543,
+      "anonName": "helloworld-ANON"
+    },
+    {
+      "id": 996572434866,
+      "comment": "dasd",
+      "dateCreated": "2022-09-08T05:43:58.581Z",
+      "postId": 10598054525543,
+      "anonName": "helloworld-ANON"
+    },
+    {
+      "id": 1511863053080,
+      "comment": "dasd",
+      "dateCreated": "2022-09-08T05:44:00.959Z",
+      "postId": 10598054525543,
+      "anonName": "helloworld-ANON"
+    },
+    {
+      "id": 1170227608206,
+      "comment": "dasd",
+      "dateCreated": "2022-09-08T05:44:02.360Z",
+      "postId": 10598054525543,
+      "anonName": "helloworld-ANON"
+    },
+    {
+      "id": 1228535274901,
+      "comment": "dasdasdas",
+      "dateCreated": "2022-09-08T05:44:03.836Z",
+      "postId": 10598054525543,
+      "anonName": "helloworld-ANON"
+    },
+    {
+      "id": 652741240524,
+      "comment": "Talaga?",
+      "dateCreated": "2022-09-08T07:20:36.481Z",
+      "postId": 10598054525543,
+      "anonName": "helloworld-ANON2"
+    },
+    {
+      "id": 590248215835,
+      "comment": "Hello",
+      "dateCreated": "2022-09-08T09:20:45.611Z",
+      "postId": 508138731127,
+      "anonName": "helloworld-ANON2"
+    }
+  ],
+  "likes": [
+    {
       "id": 1,
-      "comment": "Hello comment",
-      "dateCreated": "2022-09-07T07:32:11.452Z",
-      "postId": 1128150592242,
-      "userId": 1
-    },
-    {
-      "id": 2,
-      "comment": "Hello comment reply d2",
-      "dateCreated": "2022-09-07T07:32:11.452Z",
-      "postId": 1128150592242,
-      "userId": 1
-    },
-    {
-      "id": 3,
-      "comment": "Hello comment reply d3",
-      "dateCreated": "2022-09-07T07:32:11.452Z",
-      "postId": 1128150592242,
-      "userId": 1
-    },
-    {
-      "id": 742629488003,
-      "comment": "hello",
-      "dateCreated": "2022-09-08T05:04:33.490Z",
-      "postId": 1128150592242,
-      "userId": 1
-    },
-    {
-      "id": 966662888441,
-      "comment": "hahaasdf",
-      "dateCreated": "2022-09-08T05:05:49.241Z",
-      "postId": 1059805452554,
-      "userId": 1
-    },
-    {
-      "id": 80806022423,
-      "comment": "Try",
-      "dateCreated": "2022-09-08T05:08:40.901Z",
-      "postId": 1128150592242,
-      "userId": 1
-    },
-    {
-      "id": 150140778178,
-      "comment": "mama mo",
-      "dateCreated": "2022-09-08T05:08:45.152Z",
-      "postId": 1059805452554,
+      "postId": 10598054525543,
       "userId": 1
     }
   ]

@@ -19,4 +19,8 @@ export class LandingComponent implements OnInit {
       this.isLoggedIn = true;
     }
   }
+
+  handleLogin() {
+    location.reload();
+  }
 }

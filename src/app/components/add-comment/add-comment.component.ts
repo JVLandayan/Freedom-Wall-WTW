@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { comment } from 'src/app/shared/models/comments.model';
-import { AuthorizationService } from 'src/app/shared/services/authorization.service';
+import { AddComment, ReadComment } from 'src/app/shared/models/comment.model';
+import { AuthenticationService } from 'src/app/shared/services/Authentication.service';
 import { CommentsService } from 'src/app/shared/services/comments.service';
 import { HelperService } from 'src/app/shared/services/helper.service';
 
@@ -13,7 +13,7 @@ export class AddCommentComponent implements OnInit {
   constructor(
     private commentService: CommentsService,
     private helperService: HelperService,
-    private authService: AuthorizationService
+    private authService: AuthenticationService
   ) {}
 
   @Input() postId: number;
@@ -23,13 +23,10 @@ export class AddCommentComponent implements OnInit {
   ngOnInit(): void {}
 
   sendComment() {
-    var presentDate = new Date().toJSON();
-    const commentPayload: comment = {
-      id: this.helperService.uniqueIdGenerator(),
-      comment: this.commentContent,
-      dateCreated: presentDate,
+    const commentPayload: AddComment = {
+      body: this.commentContent,
+      userId: this.authService.userValue.userId,
       postId: this.postId,
-      userId: this.authService.userValue.id,
     };
 
     this.commentService.postComment(commentPayload).subscribe((data) => {

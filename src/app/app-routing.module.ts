@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LandingComponent } from './pages/landing/landing.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MyPostsComponent } from './pages/my-posts/my-posts.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 import { RegisterComponent } from './pages/register/register.component';
 import { LandingGuard } from './shared/landing.guard';
@@ -22,6 +23,11 @@ const routes: Routes = [
         canActivate: [LandingGuard],
       },
       {
+        path: 'profile/:id',
+        component: ProfileComponent,
+        canActivate: [LandingGuard],
+      },
+      {
         path: 'my-posts',
         component: MyPostsComponent,
         canActivate: [LandingGuard],
@@ -30,7 +36,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: '**', redirectTo: 'home' },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

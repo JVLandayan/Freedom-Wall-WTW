@@ -1,7 +1,6 @@
 export enum EntityList {
-  GENRE = 'genre',
-  AUTHORIZATION = 'authorization',
-  USERS = 'users',
-  POSTS = 'posts',
-  COMMENTS = 'comments',
+  AUTHENTICATION = 'Auth',
+  USERS = 'User',
+  POSTS = 'Post',
+  COMMENTS = 'Comment',
 }

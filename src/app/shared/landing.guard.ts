@@ -8,7 +8,7 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AuthorizationService } from './services/authorization.service';
+import { AuthenticationService } from './services/Authentication.service';
 
 @Injectable({
   providedIn: 'root',
@@ -16,12 +16,12 @@ import { AuthorizationService } from './services/authorization.service';
 export class LandingGuard implements CanActivate {
   constructor(
     private router: Router,
-    private authService: AuthorizationService
+    private authService: AuthenticationService
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     console.log(this.authService.userValue);
-    if (this.authService.userValue.id) {
+    if (this.authService.userValue.userId) {
       return true;
     }
     this.router.navigate(['']);

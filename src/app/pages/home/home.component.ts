@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { map, pipe } from 'rxjs';
-import { comment } from 'src/app/shared/models/comments.model';
-import { ReadPost } from 'src/app/shared/models/posts.model';
+import { ReadComment } from 'src/app/shared/models/comment.model';
+import { ReadPost } from 'src/app/shared/models/post.model';
 import { CommentsService } from 'src/app/shared/services/comments.service';
 import { PostsService } from 'src/app/shared/services/posts.service';
 

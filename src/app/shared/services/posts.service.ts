@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { EntityList } from '../enums/entities';
+import { AddOrUpdatePost, ReadPost } from '../models/post.model';
 
 @Injectable({
   providedIn: 'root',
@@ -12,28 +13,32 @@ export class PostsService {
 
   entityApiUrl = environment.apiUrl + EntityList.POSTS;
 
-  getPosts(): Observable<any[]> {
+  getPosts(): Observable<ReadPost[]> {
     console.log(this.entityApiUrl);
-    return this.http.get<any[]>(this.entityApiUrl);
+    return this.http.get<ReadPost[]>(this.entityApiUrl);
   }
 
-  getPostsWithComments(): Observable<any[]> {
-    return this.http.get<any[]>(this.entityApiUrl + '?_embed=comments');
+  getPostsWithComments(): Observable<ReadPost[]> {
+    return this.http.get<ReadPost[]>(this.entityApiUrl + '');
   }
 
-  getPostById(id: number): Observable<any> {
-    return this.http.get<any>(this.entityApiUrl + id);
+  getPostsByUserId(id: number): Observable<ReadPost[]> {
+    return this.http.get<ReadPost[]>(this.entityApiUrl + `/user/${id}`);
   }
 
-  createPost(payload: any): Observable<any> {
+  getPostById(id: number): Observable<ReadPost> {
+    return this.http.get<ReadPost>(this.entityApiUrl + `/${id}`);
+  }
+
+  createPost(payload: AddOrUpdatePost): Observable<any> {
     return this.http.post<any>(this.entityApiUrl, payload);
   }
 
-  updatePost(id: number, payload: any): Observable<any> {
-    return this.http.put<any>(this.entityApiUrl + payload.id, payload);
+  updatePost(id: number, payload: AddOrUpdatePost): Observable<any> {
+    return this.http.put<any>(this.entityApiUrl + '/' + id, payload);
   }
 
   deletePostById(id: number): Observable<any> {
-    return this.http.delete<any>(this.entityApiUrl + id);
+    return this.http.delete<any>(this.entityApiUrl + '/' + id);
   }
 }

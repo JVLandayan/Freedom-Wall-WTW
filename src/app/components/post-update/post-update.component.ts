@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ReadPost, UpdatePost } from 'src/app/shared/models/posts.model';
+import { ReadPost, AddOrUpdatePost } from 'src/app/shared/models/post.model';
 import { PostsService } from 'src/app/shared/services/posts.service';
 
 @Component({
@@ -25,13 +25,10 @@ export class PostUpdateComponent implements OnInit {
   }
 
   submit() {
-    const formPayload: UpdatePost = {
-      id: this.postData.id,
+    const formPayload: AddOrUpdatePost = {
       title: this.updateForm.get('title')?.value,
       content: this.updateForm.get('content')?.value,
-      anonName: this.postData.anonName,
-      userId: this.postData.userId,
-      dateCreated: this.postData.dateCreated,
+      userId: this.postData.user.id,
     };
 
     this.postService

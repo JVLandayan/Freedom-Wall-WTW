@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { comment } from 'src/app/shared/models/comments.model';
+import { ReadComment } from 'src/app/shared/models/comment.model';
 
 @Component({
   selector: 'app-comments',
@@ -7,7 +7,7 @@ import { comment } from 'src/app/shared/models/comments.model';
   styleUrls: ['./comments.component.css'],
 })
 export class CommentsComponent implements OnInit {
-  @Input() commentData: comment;
+  @Input() commentData: ReadComment;
   constructor() {}
 
   ngOnInit(): void {}

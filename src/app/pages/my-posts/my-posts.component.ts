@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ReadPost } from 'src/app/shared/models/posts.model';
-import { AuthorizationService } from 'src/app/shared/services/authorization.service';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ReadPost } from 'src/app/shared/models/post.model';
+import { AuthenticationService } from 'src/app/shared/services/Authentication.service';
 import { PostsService } from 'src/app/shared/services/posts.service';
 
 @Component({
@@ -12,20 +13,28 @@ export class MyPostsComponent implements OnInit {
   postList: ReadPost[] = [];
   isEdit: boolean = false;
   componentName: string = 'my-posts';
+  @Input() userId: number | null;
+  @Input() parentCallerName: string;
 
   constructor(
     private postService: PostsService,
-    private authService: AuthorizationService
+    private authService: AuthenticationService
   ) {}
 
   ngOnInit(): void {
-    this.postService.getPosts().subscribe((data) => {
-      const user = this.authService.userValue;
-      this.postList = data.filter((post) => post.userId == user.id);
-    });
+    if (this.parentCallerName == 'profile' && this.userId != null) {
+      this.postService.getPosts().subscribe((data) => {
+        this.postList = data.filter((post) => post.user.id == this.userId);
+      });
+    } else {
+      this.postService.getPosts().subscribe((data) => {
+        const user = this.authService.userValue;
+        this.postList = data.filter((post) => post.user.id == user.userId);
+      });
+    }
   }
 
-  editPost() {
+  editPostToggle() {
     this.isEdit = !this.isEdit;
   }
 

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { EntityList } from '../enums/entities';
-import { comment } from '../models/comments.model';
+import { ReadComment } from '../models/comment.model';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +13,8 @@ export class CommentsService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getAllComments(): Observable<comment[]> {
-    return this.httpClient.get<comment[]>(this.entityApiUrl);
+  getAllComments(): Observable<ReadComment[]> {
+    return this.httpClient.get<ReadComment[]>(this.entityApiUrl);
   }
 
   postComment(payload: any): Observable<any> {

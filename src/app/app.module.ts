@@ -18,6 +18,8 @@ import { MyPostsComponent } from './pages/my-posts/my-posts.component';
 import { PostUpdateComponent } from './components/post-update/post-update.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { AddCommentComponent } from './components/add-comment/add-comment.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileLikesComponent } from './components/profile-likes/profile-likes.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,8 @@ import { AddCommentComponent } from './components/add-comment/add-comment.compon
     PostUpdateComponent,
     CommentsComponent,
     AddCommentComponent,
+    ProfileComponent,
+    ProfileLikesComponent,
   ],
   imports: [
     BrowserModule,

@@ -4,8 +4,12 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:5000/',
-  userData: { id: 1, anonName: 'helloworld-anon' },
+  apiUrl: 'https://localhost:7032/',
+  userData: {
+    authId: 2,
+    id: 2,
+    anonName: 'helloworld-ANON2',
+  },
 };
 
 /*
